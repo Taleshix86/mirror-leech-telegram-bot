@@ -62,8 +62,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+MwgSi5vmQEA2N2Vk")
+    buttons.buildbutton("Repo", "https://www.github.com")
+    buttons.buildbutton("Report Group", "https://t.me")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -173,7 +173,7 @@ help_string_telegraph = f'''<br>
 '''
 
 help = telegraph.create_page(
-        title='Mirror-Leech-Bot Help',
+        title='Bot Help',
         content=help_string_telegraph,
     )["path"]
 
@@ -250,7 +250,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("🆙", chat_id, msg_id)
         os.remove(".restartmsg")
     elif OWNER_ID:
         try:
